@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="project.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+      body {
+        background-color: whitesmoke;
+      }
+      h1 {
+            text-align: center;
+            color: whitesmoke;
+        }
+        
+/*camera styling */
+.panel {
+  padding-bottom: 10px;
+}
+
+#cam {
+  border: 1px;
+  border-color: black;
+  border-style: solid;
+}
+
+#photo {
+  border: 1px;
+  border-color: black;
+  border-style: dashed;
+}
+
+/*topnav*/
+.topnav {
+          overflow: hidden;
+          background-color: #333;
+        }
+        
+        .topnav a {
+          float: left;
+          color: #f2f2f2;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 17px;
+        }
+        
+        .topnav a:hover {
+          background-color: #ddd;
+          color: black;
+        }
+.topnav a.active {
+          background-color: #04AA6D;
+          color: white;
+        }
+    </style>
+</head>
+
+<body>
+  <div class="topnav">
+    <a class="active" href="home.html">Home</a>
+    <h1>System Operation</h1>
+  </div>
+    <p>
+        <label for="imageFile">Upload a photo of yourself:</label>
+        <p><input type="file" id="imageFile" capture="user" accept="image/*"></p>
+    </p>
+    <p>OR</p>
+    <div class="panel">
+        <button id="switchFrontBtn">Front Camera</button>
+        <button id="switchBackBtn">Back Camera</button>
+        <button id="snapBtn">Snap</button>
+      </div>
+      <div style="width:100%">
+        <!-- add autoplay muted playsinline for iOS -->
+        <video id="cam" autoplay muted playsinline>Not available</video>
+        <canvas id="canvas" style="display:none"></canvas>  
+        <img id="photo" alt="The screen capture will appear in this box.">  
+      </div>
+
+
+</body>
+</html>

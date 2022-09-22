@@ -1,0 +1,13 @@
+POST http://localhost:3007/api/Names/update HTTP/1.1
+content-type: application/json
+
+{
+ "Name": "Names",
+ "actions" : "Henry"
+}
+###
+
+GET http://localhost:3007/api/Names
+
+###
+
