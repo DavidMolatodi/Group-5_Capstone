@@ -1,13 +1,39 @@
-POST http://localhost:3007/api/Names/update HTTP/1.1
+POST http://localhost:3007/api/Users/update HTTP/1.1
 content-type: application/json
 
 {
- "Name": "Names",
- "actions" : "Henry"
+ "Users": "Names",
+ "Names": "Henry"
 }
 ###
 
-GET http://localhost:3007/api/Names
+
+POST http://localhost:3007/api/Gender/update 
+content-type: application/json
+
+{
+ "Gender": "Sex",
+ "Sex": "Male"
+}
+###
+
+
+POST http://localhost:3007/api/Skintexture/update
+content-type: application/json
+
+{
+ "Skintexture": "typesOfSkin",
+ "typesOfSkin": "Oily Skin"
+}
+###
+
+
+
+GET http://localhost:3007/api/Users
 
 ###
 
+
+GET http://localhost:3007/api/Skintexture
+
+###

@@ -48,26 +48,16 @@ console.log('db initialized');
 await db.migrate();
 
 
-app.post('/api/Names/update', async function (req, res) {
+app.post('/api/Users/update', async function (req, res) {
 
     console.log(req.body)
 
-    const { Names,
-        Race,
-        Age,
-        Sex,
-        typesOfSkin,
-        ProductsIngredients
-
+    const {
+        Users
     } = req.body
 
-    const result = await db.run(`update Names set Race = ?,Age = ?,Sex = ?,typesOfSkin = ?,ProductsIngredients = ? where Names = ?`,
-        Names,
-        Race,
-        Age,
-        Sex,
-        typesOfSkin,
-        ProductsIngredients
+    const result = await db.run(`update Users set Names = ?,Surname = ?,Contacts = ? where Names = ?`,
+        Users 
     );
 
     console.log(result)
@@ -78,16 +68,64 @@ app.post('/api/Names/update', async function (req, res) {
 });
 
 
-app.get('/api/Names', async function (req, res) {
 
-    const Names = await db.all(`select * from Names`);
+
+app.post('/api/Gender/update', async function (req, res) {
+
+    console.log(req.body)
+
+    const {
+        Gender
+    } = req.body
+
+    const result = await db.run(`update Gender set Sex = ? where Sex = ?`,
+        Gender 
+    );
+
+    console.log(result)
 
     res.json({
-        Names
+        status: 'success'
     })
 });
 
-console.log("done");
+
+
+app.post('/api/Skintexture/update', async function (req, res) {
+
+    console.log(req.body)
+
+    const {
+        Skintexture
+    } = req.body
+
+    const result = await db.run(`update Skintexture set typesOfSkin = ?,Recommendations_id = ? where typesOfSkin = ?`,
+        Skintexture
+    );
+
+    console.log(result)
+
+    res.json({
+        status: 'success'
+    })
+});
+
+
+app.get('/api/Users', async function(req, res) {
+    const Users = await db.all(`select * from Users`);
+    res.json({
+        Users
+    });
+});
+
+
+
+app.get('/api/Skintexture', async function(req, res) {
+    const Skintexture = await db.all(`select * from Skintexture`);
+    res.json({
+        Skintexture
+    });
+});
 
 
 

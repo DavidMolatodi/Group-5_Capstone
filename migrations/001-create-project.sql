@@ -1,6 +1,11 @@
-create table Names (
+create table Users (
 id integer primary key AUTOINCREMENT,
-Personas text
+Names text,
+Surname text,
+Contacts text,
+Denominations_id integer,
+Agegroup_id integer,
+Gender_id integer
 );
 
 create table Denominations (
@@ -21,26 +26,19 @@ Sex text
 
 create table Skintexture (
 id integer primary key AUTOINCREMENT,
-typesOfSkin text 
+typesOfSkin text,
+Recommendations_id integer
 );
+
+create table UserSKinTexture (
+id integer primary key AUTOINCREMENT,
+User_id integer,
+Skintexture_id integer
+);
+
 
 create table Recommendations(
 id integer primary key AUTOINCREMENT,
 ProductsIngredients text
 );
 
-create table NDSR (
-id integer primary key AUTOINCREMENT,
-Name_id integer,
-Race_id integer,
-Agegroup_id integer,
-Gender_id integer,
-Skintexture_id integer,
-Recommendations_id integer,
- FOREIGN KEY (Name_id) REFERENCES Name(id),
- FOREIGN KEY (Race_id) REFERENCES Race(id),
- FOREIGN KEY (Agegroup_id) REFERENCES Agegroup(id),
- FOREIGN KEY (Gender_id) REFERENCES Gender(id),
- FOREIGN KEY (Skintexture_id) REFERENCES Skintexture(id),
- FOREIGN KEY (Recommendations_id) REFERENCES Recommendations(id)
- );
