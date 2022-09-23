@@ -27,7 +27,7 @@ import sqlite3 from 'sqlite3';
 import express from 'express';
 
 const app = express();
-//app.use(express.static('public'))
+app.use(express.static('public'))
 
 
 //app.use(express.urlencoded({ extended: false }))
