@@ -53,11 +53,17 @@ app.post('/api/Users/update', async function (req, res) {
     console.log(req.body)
 
     const {
-        Users
+        id,
+        Names,
+        Surname,
+        Contacts
     } = req.body
 
-    const result = await db.run(`update Users set Names = ?,Surname = ?,Contacts = ? where Names = ?`,
-        Users 
+    const result = await db.run(`update Users set Names = ?,Surname = ?,Contacts = ? where id = ?`,
+    Names,
+    Surname,
+    Contacts,
+    id
     );
 
     console.log(result)
