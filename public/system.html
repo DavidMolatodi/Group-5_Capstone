@@ -59,14 +59,29 @@
           background-color: #04AA6D;
           color: white;
         }
+
+        .system {
+          text-align: center;
+          float: left;
+          
+        }
+
+        @media (min-width: 760px){
+    .Flex{
+        display: flex;
+    }
+}
     </style>
 </head>
 
 <body>
+
   <div class="topnav">
-    <a class="active" href="home.html">Home</a>
+    <a class="active" href="index.html">Home</a>
     <h1>System Operation</h1>
   </div>
+<div class="Flex">
+<div class="system">
     <p>
         <label for="imageFile">Upload a photo of yourself:</label>
         <p><input type="file" id="imageFile" capture="user" accept="image/*"></p>
@@ -83,6 +98,10 @@
         <canvas id="canvas" style="display:none"></canvas>  
         <img id="photo" alt="The screen capture will appear in this box.">  
       </div>
+  </div>
+    
+</div>
+  
 
 
 </body>
